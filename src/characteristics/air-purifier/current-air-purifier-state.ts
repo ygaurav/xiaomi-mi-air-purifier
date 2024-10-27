@@ -23,6 +23,7 @@ export function add(
 
   return service.getCharacteristic(characteristic).onGet(async () => {
     const device = await maybeDevice;
+    console.log(device);
     const isOn = await device.power();
     return isOn ? PURIFYING_AIR : INACTIVE;
   });

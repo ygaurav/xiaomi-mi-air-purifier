@@ -32,6 +32,7 @@ export function add(
 
   return service.getCharacteristic(characteristic).onGet(async () => {
     const device = await maybeDevice;
+    console.log(device);
     return pm2_5ToAqi(await device.pm2_5());
   });
 }

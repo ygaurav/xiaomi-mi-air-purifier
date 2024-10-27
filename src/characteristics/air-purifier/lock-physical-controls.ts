@@ -21,12 +21,14 @@ export function add(
     .getCharacteristic(characteristic)
     .onGet(async () => {
       const device = await maybeDevice;
+      console.log(device);
       return (await device.childLock())
         ? CONTROL_LOCK_ENABLED
         : CONTROL_LOCK_DISABLED;
     })
     .onSet(async (newStatus) => {
       const device = await maybeDevice;
+      console.log(device);
       await device.changeChildLock(newStatus);
     });
 }

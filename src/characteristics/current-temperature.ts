@@ -16,6 +16,7 @@ export function add(
     // Temperature { value: 23.4, unit: 'C' }
     async () => {
       const device = await maybeDevice;
+      console.log(device);
       return (await device.temperature()).value;
     },
   );

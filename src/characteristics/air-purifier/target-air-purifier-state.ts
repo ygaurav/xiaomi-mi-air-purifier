@@ -19,10 +19,12 @@ export function add(
     .getCharacteristic(characteristic)
     .onGet(async () => {
       const device = await maybeDevice;
+      console.log(device);
       return (await device.mode()) ? MANUAL : AUTO;
     })
     .onSet(async (mode) => {
       const device = await maybeDevice;
+      console.log(device);
       const newMode = mode === AUTO ? MODE.AUTO : MODE.NONE;
       const currentMode = await device.mode();
       if (newMode !== currentMode) {

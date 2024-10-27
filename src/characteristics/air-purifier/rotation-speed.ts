@@ -23,6 +23,7 @@ export function add(
     .getCharacteristic(characteristic)
     .onGet(async () => {
       const device = await maybeDevice;
+      console.log(device);
       return toPercentage(await device.fanSpeed());
     })
     .onSet(async (speed) => {

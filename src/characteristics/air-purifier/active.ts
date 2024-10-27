@@ -22,6 +22,7 @@ export function add(
     })
     .onSet(async function (this: Characteristic, newStatus) {
       const device = await maybeDevice;
+      console.log(device);
       const currentStatus = await device.power();
       if (currentStatus !== newStatus) {
         await device.changePower(newStatus);
